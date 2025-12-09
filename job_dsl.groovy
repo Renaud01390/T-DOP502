@@ -28,7 +28,7 @@ job('Tools/SEED') {
 
     steps {
         dsl {
-            external('job_dsl.groovy')
+            external('/var/jenkins_home/job_dsl.groovy')
             removeAction('IGNORE')
         }
     }
