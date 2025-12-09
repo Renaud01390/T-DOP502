@@ -61,3 +61,27 @@ jenkins:
               - "Job/Workspace"
             entries:
               - user: "nasso"
+
+jobs:
+  - script: >
+      job('marvin-seed') {
+        description('Seed job that loads the Job DSL configuration')
+        scm {
+          git {
+            remote {
+              url('https://github.com/Renaud01390/T-DOP502.git')
+            }
+            branch('main')
+          }
+        }
+        triggers {
+          scm('* * * * *')
+        }
+        steps {
+          dsl {
+            external('job_dsl.groovy')
+            removeAction('DELETE')
+            ignoreExisting(false)
+          }
+        }
+      }

@@ -30,10 +30,6 @@ job('Tools/SEED') {
         dsl {
             external('job_dsl.groovy')
             removeAction('IGNORE')
-            additionalParameters([
-                GITHUB_NAME : '${GITHUB_NAME}',
-                DISPLAY_NAME : '${DISPLAY_NAME}'
-            ])
         }
     }
 }
